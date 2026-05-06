@@ -34,6 +34,11 @@ export const Route = createRootRoute({
       { property: "og:title", content: "Logistics HQ — Mission Control" },
       { property: "og:description", content: "Real-time logistics operations dashboard with AI dispatch intelligence" },
       { property: "og:type", content: "website" },
+      { name: "twitter:title", content: "Logistics HQ — Mission Control" },
+      { name: "twitter:description", content: "Real-time logistics operations dashboard with AI dispatch intelligence" },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/441e71a9-2052-41b2-99d3-19e1f0fb0790/id-preview-98c7a39d--efa6db60-d165-459a-9f23-61fafbc97da1.lovable.app-1778052997856.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/441e71a9-2052-41b2-99d3-19e1f0fb0790/id-preview-98c7a39d--efa6db60-d165-459a-9f23-61fafbc97da1.lovable.app-1778052997856.png" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       {
