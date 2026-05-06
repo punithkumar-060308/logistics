@@ -67,5 +67,4 @@ Team Name: Your Team Name
 
 This project is developed for educational and hackathon purposes.
 This project was designed and developed using Lovable to rapidly create a modern, responsive, and interactive user experience for the Smart Delivery Dispatch System.
-
 **Note:** Please do not change the format or spelling of anything in this README. The fields are extracted using a script, so any changes to the structure or formatting may break the extraction process.
