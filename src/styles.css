@@ -1,0 +1,217 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@font-face {
+  font-family: 'Space Mono';
+  src: local('Space Mono');
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Logistics HQ custom colors */
+  --color-hq-bg: var(--hq-bg);
+  --color-hq-panel: var(--hq-panel);
+  --color-hq-card: var(--hq-card);
+  --color-hq-card2: var(--hq-card2);
+  --color-hq-border: var(--hq-border);
+  --color-hq-border2: var(--hq-border2);
+  --color-hq-cyan: var(--hq-cyan);
+  --color-hq-green: var(--hq-green);
+  --color-hq-amber: var(--hq-amber);
+  --color-hq-red: var(--hq-red);
+  --color-hq-purple: var(--hq-purple);
+  --color-hq-txt: var(--hq-txt);
+  --color-hq-txt2: var(--hq-txt2);
+  --color-hq-txt3: var(--hq-txt3);
+
+  --font-space: 'Space Mono', monospace;
+  --font-rajdhani: 'Rajdhani', sans-serif;
+  --font-jetbrains: 'JetBrains Mono', monospace;
+}
+
+:root {
+  --radius: 0.125rem;
+
+  /* Base surfaces */
+  --background: #060c18;
+  --foreground: #e8f0fe;
+  --card: #0f1c35;
+  --card-foreground: #e8f0fe;
+  --popover: #0b1426;
+  --popover-foreground: #e8f0fe;
+
+  /* Brand */
+  --primary: #00e5ff;
+  --primary-foreground: #060c18;
+  --secondary: #111f38;
+  --secondary-foreground: #e8f0fe;
+  --muted: #1a2d52;
+  --muted-foreground: #7a9cc0;
+  --accent: #7c4dff;
+  --accent-foreground: #e8f0fe;
+  --destructive: #ff3d5a;
+  --destructive-foreground: #ffffff;
+
+  /* Borders */
+  --border: #1a2d52;
+  --input: #1a2d52;
+  --ring: #00e5ff;
+
+  /* Charts */
+  --chart-1: #00e5ff;
+  --chart-2: #00ff9d;
+  --chart-3: #ffaa00;
+  --chart-4: #ff3d5a;
+  --chart-5: #7c4dff;
+
+  /* HQ tokens */
+  --hq-bg: #060c18;
+  --hq-panel: #0b1426;
+  --hq-card: #0f1c35;
+  --hq-card2: #111f38;
+  --hq-border: #1a2d52;
+  --hq-border2: #1e3a6e;
+  --hq-cyan: #00e5ff;
+  --hq-green: #00ff9d;
+  --hq-amber: #ffaa00;
+  --hq-red: #ff3d5a;
+  --hq-purple: #7c4dff;
+  --hq-txt: #e8f0fe;
+  --hq-txt2: #7a9cc0;
+  --hq-txt3: #3d5a80;
+
+  --glow-cyan: 0 0 18px rgba(0,229,255,.4);
+  --glow-green: 0 0 18px rgba(0,255,157,.4);
+  --glow-amber: 0 0 18px rgba(255,170,0,.4);
+  --glow-red: 0 0 18px rgba(255,61,90,.4);
+}
+
+@layer base {
+  * {
+    border-color: var(--hq-border);
+  }
+
+  body {
+    font-family: var(--font-rajdhani);
+    background-color: var(--hq-bg);
+    color: var(--hq-txt);
+    font-size: 14px;
+    overflow: hidden;
+  }
+
+  /* Scanline overlay */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,.025) 2px, rgba(0,0,0,.025) 4px);
+    pointer-events: none;
+    z-index: 9999;
+  }
+}
+
+/* ═══ Pulse dot animation ═══ */
+@keyframes pdot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes node-pulse {
+  0% { transform: scale(1); opacity: 0.25; }
+  50% { transform: scale(1.4); opacity: 0; }
+  100% { transform: scale(1); opacity: 0.25; }
+}
+
+@keyframes alert-pulse {
+  0%, 100% { box-shadow: 0 0 6px rgba(255,61,90,.3); }
+  50% { box-shadow: 0 0 18px rgba(255,61,90,.7); }
+}
+
+/* Custom scrollbar */
+.hq-scroll::-webkit-scrollbar { width: 3px; }
+.hq-scroll::-webkit-scrollbar-thumb { background: var(--hq-border2); }
+
+/* Toggle switch */
+.tg-switch {
+  position: relative;
+  width: 34px;
+  height: 17px;
+  cursor: pointer;
+}
+.tg-switch input { opacity: 0; width: 0; height: 0; position: absolute; }
+.tg-track {
+  position: absolute;
+  inset: 0;
+  background: var(--hq-bg);
+  border: 1px solid var(--hq-border);
+  transition: .2s;
+}
+.tg-track::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 11px;
+  height: 11px;
+  background: var(--hq-txt3);
+  transition: .2s;
+}
+.tg-switch input:checked + .tg-track {
+  border-color: var(--hq-cyan);
+  background: rgba(0,229,255,.08);
+}
+.tg-switch input:checked + .tg-track::after {
+  transform: translateX(17px);
+  background: var(--hq-cyan);
+  box-shadow: var(--glow-cyan);
+}
+
+/* Range slider */
+input[type=range] {
+  -webkit-appearance: none;
+  width: 130px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--hq-cyan) var(--pct, 60%), var(--hq-bg) var(--pct, 60%));
+  border-radius: 2px;
+  cursor: pointer;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--hq-cyan);
+  box-shadow: var(--glow-cyan);
+}
